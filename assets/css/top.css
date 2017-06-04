@@ -1,0 +1,91 @@
+
+body {
+  font-family: serif;
+  background-repeat: no-repeat;         /* 背景を繰り返さない */
+  background-size: contain;           /* 背景全体にサイズ変換 */
+  background-position: 50% 50%;            /* 背景画像の位置は画面中央 */
+  background-attachment:fixed;             /* 背景画像を固定する */
+}
+
+
+#a-box {
+  text-align: center;
+  padding-top: 3px;
+  padding-bottom: 10px; 
+  background-color: ;
+  font-family: serif;
+}
+
+#b-box {
+  float: right;
+  width: 400px;
+  margin-right: 400px;
+  text-align: left;
+}
+
+.books {
+  border: 1px solid #e5e5e5;
+  margin: 10px 10px 10px 10px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  border-radius: 5px;
+  font-family: serif;
+}
+.date {
+  font-size: 6px;
+  font-family: serif;
+}
+
+.data1 {
+  border-radius: 10px;
+  color: black;
+  font-family: serif;
+}
+
+#c-box {
+  position: fixed;
+  float: left;
+  width: 300px;
+  text-align: center;
+  padding-top: 30px;
+  padding-left: 40px;
+  margin-top: 20px;
+  font-family: serif;
+}
+
+.book {
+  margin-top: 30px;
+  margin-left: -100px;
+  font-family: serif;
+}
+
+.content2 {
+  padding: 10px;
+  font-family: serif;
+}
+
+.data1   {
+  border-bottom: 1px ridge #e5e5e5;
+  text-align: left;
+  margin-top: -10px;
+  font-family: serif;
+  background-color: white;
+  
+}
+
+a.history {
+  margin-left: 60px;
+  font-family: serif;
+}
+
+#d-box {
+  margin-top: 600px;
+  clear: both;
+  text-align: center;
+  height: 40px;
+  background-color: ;
+  font-family: serif;
+}
+
