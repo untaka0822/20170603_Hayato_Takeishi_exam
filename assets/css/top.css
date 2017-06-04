@@ -19,7 +19,7 @@ body {
 #b-box {
   float: right;
   width: 400px;
-  margin-right: 400px;
+  margin-right: 450px;
   text-align: left;
 }
 
@@ -88,4 +88,5 @@ a.history {
   background-color: ;
   font-family: serif;
 }
+
 

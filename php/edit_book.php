@@ -93,7 +93,7 @@ if (isset($_SESSION['login_member_id']) && $_SESSION['time'] + 3600 > time()) {
     <link rel="stylesheet" type="text/css" href="../resource/lightbox.css" media="screen,tv" />
     <script type="text/javascript" src="../resource/lightbox_plus.js"></script>
 </head>
-<body style="background-image: url(../book_picture/book_background11.jpg);">
+<body>
   <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgba(0, 0, 0, 0.66);">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->

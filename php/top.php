@@ -52,19 +52,6 @@
   // 検索
   $search_word = '';
 
-  if (isset($_GET['search_word']) && !empty($_GET['search_word'])) {
-    // 検索の場合の処理
-    $search_word = $_GET['search_word'];
-
-    $sql = sprintf('SELECT b.*, m.nick_name, m.picture_path FROM `books` b LEFT JOIN `members` m ON b.user_id=m.member_id WHERE b.title LIKE "%%%s%%" ORDER BY b.created DESC LIMIT %d, 5', $_GET['search_word'], $start);
-  } else {
-    // 通常の処理
-    $sql = sprintf('SELECT b.*, m.nick_name, m.picture_path FROM `books` b LEFT JOIN `members` m ON b.user_id=m.member_id ORDER BY b.created DESC LIMIT %d, 5', $start);
-  }
-
-  $stmt2 = $dbh->prepare($sql);
-  $stmt2->execute();
-
   // いいね機能
   if (!empty($_POST && $_POST['submit-type'] == 'like')) {
     if ($_POST['like'] == 'like') {
@@ -97,6 +84,36 @@
       header('Location: edit_book.php');
       exit();
   }
+
+  // お問い合わせされたとき
+  if (!empty($_POST) && $_POST['submit-type'] == 'contact') {
+      $nick_name = $_POST['user_name'];
+      $email = $_POST['email'];
+      $contents = $_POST['contents'];
+
+      $sql = 'INSERT INTO `contact` SET `user_id`=?, `user_name`=?, `email`=?, `contents`=?, `created`=NOW()';
+      $data = array($_SESSION['login_member_id'], $nick_name, $email, $contents);
+      $contact_stmt = $dbh->prepare($sql);
+      $contact_stmt->execute($data);
+
+      header('Location: thanks_contact.php');
+      exit();
+  }
+
+  // 検索されたとき
+  if (isset($_GET['search_word']) && !empty($_GET['search_word'])) {
+    // 検索の場合の処理
+    $search_word = $_GET['search_word'];
+
+    $sql = sprintf('SELECT b.*, m.nick_name, m.picture_path FROM `books` b LEFT JOIN `members` m ON b.user_id=m.member_id WHERE b.title LIKE "%%%s%%" ORDER BY b.created DESC LIMIT %d, 5', $_GET['search_word'], $start);
+  } else {
+    // 通常の処理
+    $sql = sprintf('SELECT b.*, m.nick_name, m.picture_path FROM `books` b LEFT JOIN `members` m ON b.user_id=m.member_id ORDER BY b.created DESC LIMIT %d, 5', $start);
+  }
+
+    $stmt2 = $dbh->prepare($sql);
+    $stmt2->execute();
+
 ?>
 
 
@@ -160,9 +177,29 @@
       <!-- /.container-fluid -->
   </nav>
 <div id="site-box">
-  <div id="a-box"></div>
+  <div id="a-box">
+  </div>
   <div id="b-box">
     <div class="content1">
+      <form id="contact" action="" method="POST" style="float: right; position: fixed; margin-left: 450px">
+        <h3 style="color: white; border-bottom: 1px solid #e5e5e5">お問い合わせ</h3>
+
+        <fieldset style="margin: 10px">
+          <input name="user_name" placeholder="ユーザー名" type="text" required autofocus>
+        </fieldset>
+        <fieldset style="margin: 10px">
+          <input name="email" value="<?php $email; ?>" placeholder="メールアドレス" type="email" tabindex="2" required>
+        </fieldset>
+        <fieldset style="margin: 10px">
+          <textarea name="contents" placeholder="お問い合わせ内容を入力してください" tabindex="4" required></textarea>
+        </fieldset>
+        <fieldset style="margin: 10px">
+          <button name="submit" type="submit" id="contact-submit" class="btn btn-success" data-submit="...Sending">お問い合わせする</button>
+          <input type="hidden" name="submit-type" value="contact">
+          <input type="hidden" name="user_id" value="<?php echo $_SESSION['login_member_id']; ?>">
+        </fieldset>
+      </form>
+
       <div class="book">
         <form method="POST" action="" name="title" style="margin-left: 20px;">
           <select>
@@ -260,7 +297,7 @@
                     <a href="" class="btn btn-default">次</a>
                 <?php endif; ?>
               </div>
-            </ul>
+            </ul>  
       </div>
     </div>
   </div>
@@ -284,8 +321,7 @@
     <a href="new_book.php" class="btn btn-warning" style="margin-right: 10px">本を新しく追加する</a>
     <a href="edit_user.php" class="btn btn-success" style="margin-top: 10px; margin-bottom: 10px; margin-right: 10px">ユーザー情報を編集する</a>
   </div>
-  <div id="d-box">
-    
+  <div id="d-box">  
   </div>
 </div>
   <nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: rgba(0, 0, 0, 0.66);">

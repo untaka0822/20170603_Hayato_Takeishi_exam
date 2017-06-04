@@ -64,7 +64,7 @@ if (!empty($_POST)) {
     <link href="../assets/css/timeline.css" rel="stylesheet">
     <link href="../assets/css/main.css" rel="stylesheet">
 </head>
-<body style="background-image: url(../book_picture/book_background8.jpg);">
+<body>
   <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgba(0, 0, 0, 0.66);">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->

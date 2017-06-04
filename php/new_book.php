@@ -3,16 +3,16 @@ session_start();
 require('dbconnect.php');
 
 $title = '';
-$category_id = '';
+// $category_id = '';
 $reasons = '';
 $book_picture = '';
 
 $errors = array();
 
-// 本のカテゴリー
-$sql = 'SELECT * FROM `categories`';
-$stmt = $dbh->prepare($sql);
-$stmt->execute();
+// 本のカテゴリー 実装できませんでした
+// $sql = 'SELECT * FROM `categories`';
+// $stmt = $dbh->prepare($sql);
+// $stmt->execute();
 
 // 確認画面ボタンが押された時
 if (!empty($_POST)) {
@@ -56,10 +56,8 @@ if (!empty($_POST)) {
       $_SESSION['join'] = $_POST;
       $_SESSION['join']['book_picture'] = $picture_name;
       
-
-      var_dump($category_id);
-      // header('Location: check_book.php');
-      // exit();
+      header('Location: check_book.php');
+      exit();
     }
 }
 
@@ -123,17 +121,17 @@ if (!empty($_POST)) {
             </div>
           </div>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label class="col-sm-4 control-label" style="font-family: serif;;">本のカテゴリー</label>
             <div class="col-sm-8">
             <select style="width: 120px; text-align: center">
-              <?php while($categorys = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-                  <option name="category_id"><?php echo $categorys['name']; ?></option>
-              <?php endwhile; ?>
+              <?php // while($categorys = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+                  <option name="category_id"><?php // echo $categorys['name']; ?></option>
+              <?php // endwhile; ?>
             </select>
-              <input type="hidden" name="category_id" class="form-control" value="<?php echo $categorys['category_id']; ?>" style="font-family: serif;">
+              <input type="hidden" name="category_id" class="form-control" value="<?php // echo $categorys['category_id']; ?>" style="font-family: serif;">
             </div>
-          </div>
+          </div> -->
 
 
           

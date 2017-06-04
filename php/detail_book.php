@@ -16,11 +16,21 @@ if (!isset($_REQUEST['book_id'])) {
 }
 
 // 選択したリスト一件取得
-$sql = 'SELECT * FROM `books`  WHERE `book_id`=?';
+$sql = 'SELECT * FROM `books` WHERE `book_id`=?';
 $data = array($_REQUEST['book_id']);
 $stmt = $dbh->prepare($sql);
 $stmt->execute($data);
 $detail = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$sql = 'SELECT * FROM `members` WHERE `member_id`=?';
+$data = array($_SESSION['login_member_id']);
+$stmt1 = $dbh->prepare($sql);
+$stmt1->execute($data);
+$member = $stmt1->fetch(PDO::FETCH_ASSOC);
+
+// echo '<pre>';
+// var_dump($member);
+// echo '</pre>';
 
 if (!empty($_POST)) {
   
@@ -87,15 +97,17 @@ if (!empty($_POST)) {
 
           <h4 style="margin: 14px; font-family: serif;">作成日 : <?php echo $detail['created']; ?></h4>
 
-          <form name="form3" method="POST" action="" style="center; margin-left: 60px">
-              <a href="top.php" class="btn btn-default" style="margin-bottom: 10px; font-family: serif;">トップに戻る</a> 
-              <input class="btn btn-success" type="submit" value="編集する" style="margin-bottom: 10px; font-family: serif;">
-              <input type="hidden" name="book_id" value="<?php echo $detail['book_id']; ?>">
-              <input type="hidden" name="title" value="<?php echo $detail['title']; ?>">
-              <input type="hidden" name="reasons" value="<?php echo $detail['reasons']; ?>">
-              <input type="hidden" name="book_picture" value="<?php echo $detail['book_picture']; ?>">
-              <input type="hidden" name="created" value="<?php echo $detail['created']; ?>">
-          </form>
+            <form name="form3" method="POST" action="" style="center; margin-left: 60px">
+              <?php if ($member['member_id'] == $detail['user_id']): ?>
+                <input class="btn btn-success" type="submit" value="編集する" style="margin-bottom: 10px; font-family: serif;">
+                <input type="hidden" name="book_id" value="<?php echo $detail['book_id']; ?>">
+                <input type="hidden" name="title" value="<?php echo $detail['title']; ?>">
+                <input type="hidden" name="reasons" value="<?php echo $detail['reasons']; ?>">
+                <input type="hidden" name="book_picture" value="<?php echo $detail['book_picture']; ?>">
+                <input type="hidden" name="created" value="<?php echo $detail['created']; ?>">
+              <?php endif; ?>
+                <a href="top.php" class="btn btn-default" style="margin-bottom: 10px; font-family: serif;">トップに戻る</a>
+            </form>
         </div>
     </div>
 
