@@ -93,8 +93,8 @@ if (isset($_SESSION['login_member_id']) && $_SESSION['time'] + 3600 > time()) {
     <link rel="stylesheet" type="text/css" href="../resource/lightbox.css" media="screen,tv" />
     <script type="text/javascript" src="../resource/lightbox_plus.js"></script>
 </head>
-<body>
-  <nav class="navbar navbar-default navbar-fixed-top">
+<body style="background-image: url(../book_picture/book_background11.jpg);">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgba(0, 0, 0, 0.66);">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
@@ -104,7 +104,7 @@ if (isset($_SESSION['login_member_id']) && $_SESSION['time'] + 3600 > time()) {
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="top.php" style="font-family: serif;"><span class="strong-title"><i class="fa fa-linux"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" href="top.php" style="font-family: serif;"><span class="strong-title" style="color: white"><i class="fa fa-facebook"></i> BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -168,7 +168,7 @@ if (isset($_SESSION['login_member_id']) && $_SESSION['time'] + 3600 > time()) {
         </form>
       </div>
 
-      <nav class="navbar navbar-default navbar-fixed-bottom">
+      <nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: rgba(0, 0, 0, 0.66);">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
@@ -178,7 +178,7 @@ if (isset($_SESSION['login_member_id']) && $_SESSION['time'] + 3600 > time()) {
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="top.php"><span class="strong-title" style="text-align: right; font-family: serif; padding-left: 860px;"><i class="fa fa-linux"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" href="top.php"><span class="strong-title" style="text-align: right; font-family: serif; padding-left: 860px; color: white"><i class="fa fa-facebook"></i> BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

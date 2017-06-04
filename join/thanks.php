@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>NexSeed Book</title>
+    <title>BookBookBook</title>
 
     <!-- Bootstrap -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
@@ -26,7 +26,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.php" style="font-family: serif;"><span class="strong-title"><i class="fa fa-facebook"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" href="index.php" style="font-family: serif;"><span class="strong-title"><i class="fa fa-facebook"></i>BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -60,7 +60,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.php" style="font-family: serif; margin-left: 860px;"><span class="strong-title"><i class="fa fa-facebook"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" href="index.php" style="font-family: serif; margin-left: 860px;"><span class="strong-title"><i class="fa fa-facebook"></i>BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

@@ -4,7 +4,7 @@ body {
   background-repeat: no-repeat;         /* 背景を繰り返さない */
   background-size: contain;           /* 背景全体にサイズ変換 */
   background-position: 50% 50%;            /* 背景画像の位置は画面中央 */
-  background-attachment:fixed;             /* 背景画像を固定する */
+  background-attachment:fixed;          /* 背景画像を固定する */
 }
 
 

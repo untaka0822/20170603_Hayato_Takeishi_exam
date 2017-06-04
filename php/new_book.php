@@ -3,16 +3,23 @@ session_start();
 require('dbconnect.php');
 
 $title = '';
+$category_id = '';
 $reasons = '';
 $book_picture = '';
 
 $errors = array();
+
+// 本のカテゴリー
+$sql = 'SELECT * FROM `categories`';
+$stmt = $dbh->prepare($sql);
+$stmt->execute();
 
 // 確認画面ボタンが押された時
 if (!empty($_POST)) {
 
     $title = $_POST['title'];
     $reasons = $_POST['reasons'];
+    $category_id = $_POST['category_id'];
 
     // ページ内バリデーション
     if ($title == '') {
@@ -49,8 +56,10 @@ if (!empty($_POST)) {
       $_SESSION['join'] = $_POST;
       $_SESSION['join']['book_picture'] = $picture_name;
       
-      header('Location: check_book.php');
-      exit();
+
+      var_dump($category_id);
+      // header('Location: check_book.php');
+      // exit();
     }
 }
 
@@ -71,10 +80,11 @@ if (!empty($_POST)) {
     <link href="../assets/css/form.css" rel="stylesheet">
     <link href="../assets/css/timeline.css" rel="stylesheet">
     <link href="../assets/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/all.css">
 
   </head>
   <body>
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgba(0, 0, 0, 0.66);">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
@@ -84,7 +94,7 @@ if (!empty($_POST)) {
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="top.php" style="font-family: serif;"><span class="strong-title"><i class="fa fa-facebook"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" href="top.php" style="font-family: serif;"><span class="strong-title" style="color: white"><i class="fa fa-facebook"></i> BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -112,6 +122,20 @@ if (!empty($_POST)) {
                <?php endif; ?>
             </div>
           </div>
+
+          <div class="form-group">
+            <label class="col-sm-4 control-label" style="font-family: serif;;">本のカテゴリー</label>
+            <div class="col-sm-8">
+            <select style="width: 120px; text-align: center">
+              <?php while($categorys = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+                  <option name="category_id"><?php echo $categorys['name']; ?></option>
+              <?php endwhile; ?>
+            </select>
+              <input type="hidden" name="category_id" class="form-control" value="<?php echo $categorys['category_id']; ?>" style="font-family: serif;">
+            </div>
+          </div>
+
+
           
           <div class="form-group">
             <label class="col-sm-4 control-label" style="font-family: serif;">おすすめな理由</label>
@@ -126,7 +150,7 @@ if (!empty($_POST)) {
           </div>
           
           <div class="form-group">
-            <label class="col-sm-4 control-label" style="font-family: serif;">新しい本の写真</label>
+            <label class="col-sm-4 control-label" style="font-family: serif;">新しい本の画像</label>
             <div class="col-sm-8">
               <input type="file" name="book_picture" class="form-control" value="<?php echo $book_picture; ?>" style="font-family: serif;">
               <?php if(isset($errors['book_picture']) && $errors['book_picture'] == 'blank'): ?>
@@ -156,7 +180,7 @@ if (!empty($_POST)) {
       </div>
     </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: rgba(0, 0, 0, 0.66);">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
@@ -166,7 +190,7 @@ if (!empty($_POST)) {
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="top.php" style="font-family: serif; padding-left: 860px"><span class="strong-title"><i class="fa fa-facebook"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" href="top.php" style="font-family: serif; padding-left: 860px"><span class="strong-title" style="color: white"><i class="fa fa-facebook"></i> BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

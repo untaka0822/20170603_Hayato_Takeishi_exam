@@ -104,7 +104,7 @@
 <html lang="ja" style=>
 <head>
   <meta charset="utf-8">
-  <title>NexSeed Book</title>
+  <title>BookBookBook</title>
 
   <link href="../assets/css/bootstrap.css" rel="stylesheet">
   <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -121,7 +121,7 @@
     i = 0;
     url = "../book_picture/";
 
-    img = new Array("../book_picture/book_background.jpg","../book_picture/book_background1.jpg","../book_picture/book_background2.jpg","../book_picture/book_background3.png","../book_picture/book_background4.jpg", "../book_picture/book_background5.jpg", "../book_picture/book_background6.jpeg", "../book_picture/book_background7.jpg", "../book_picture/book_background8.jpg", "../book_picture/book_background9.jpg", "../book_picture/book_background10.jpg", "../book_picture/book_background11.jpg", "../book_picture/book_background12.jpg", "../book_picture/book_background13.jpg");
+    img = new Array("../book_picture/book_background.jpg","../book_picture/book_background1.jpg","../book_picture/book_background2.jpg","../book_picture/book_background3.png","../book_picture/book_background4.jpg", "../book_picture/book_background5.jpg", "../book_picture/book_background6.jpeg", "../book_picture/book_background7.jpg", "../book_picture/book_background8.jpg", "../book_picture/book_background9.jpg", "../book_picture/book_background10.jpg", "../book_picture/book_background11.jpg", "../book_picture/book_background13.jpg");
 
     function change(){
         i++;
@@ -132,12 +132,12 @@
     }
     function tm(){
         document.body.background = url + img[i];
-        tm = setInterval("change()",10000);
+        tm = setInterval("change()",5000);
     }
     </script>
 
 <body onload="tm()">
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgba(0, 0, 0, 0.66);">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
@@ -147,7 +147,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="top.php" style="font-family: serif;"><span class="strong-title"><i class="fa fa-facebook"></i> NexSeed Book</span></a><a class="btn btn-danger" href="logout.php" style="margin-top: 10px; margin-left: 700px">ログアウト</a>
+              <a class="navbar-brand" href="top.php" style="font-family: serif;"><span class="strong-title" style="color: white"><i class="fa fa-facebook"></i> BookBookBook</span></a><a class="btn btn-danger" href="logout.php" style="margin-top: 10px; margin-left: 700px">ログアウト</a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -167,6 +167,7 @@
         <form method="POST" action="" name="title" style="margin-left: 20px;">
           <select>
             <option>本のタイトル</option>
+            <option>カテゴリ</option>
             <option>おすすめ理由</option>
             <option>ユーザー名</option>
           </select>
@@ -181,8 +182,8 @@
                   <a href="detail_book.php?book_id=<?php echo $books['book_id']; ?>" style="font-size: 25px;"><?php echo $books['title']; ?></a><br>
                   <a href="../member_picture/<?php echo $books['picture_path']; ?>" rel="lightbox"><img src="../member_picture/<?php echo $books['picture_path']; ?>" class="effectable" style="width: 30%; height: 32%; border-radius: 100px; margin-left: 20px"></a>
                   <a href="../book_picture/<?php echo $books['book_picture']; ?>" rel="lightbox"><img src="../book_picture/<?php echo $books['book_picture']; ?>" class="effectable" style="width: 30%; border-radius: 5px; margin-left: 70px; margin-top: 20px"></a>
-                  <p style="border-bottom: 1px solidx #e5e5e5; margin-top: 10px">ユーザー名 : <?php echo $books['nick_name']; ?></p>
-                  <p class="date" style="font-size: 14px; margin-bottom: 5px; border-bottom: 1px solid #e5e5e5"><?php echo $books['created']; ?></p>
+                  <p style="border-bottom: 1px solidx #e5e5e5; margin-top: 10px; color: green">ユーザー名 : <?php echo $books['nick_name']; ?></p>
+                  <p class="date" style="font-size: 14px; margin-bottom: 5px; border-bottom: 1px solid #e5e5e5; color: blue"><?php echo $books['created']; ?></p>
 
                   <!-- ログインしているユーザーの本だけ削除と編集を表示 -->
                   <?php if ($members['member_id'] == $books['user_id']): ?>
@@ -271,13 +272,13 @@
           date_default_timezone_set('Asia/Tokyo');
           $time = intval(date('H'));
           if (6 <= $time && $time <= 11) { ?>
-          <p style="font-size: 20px; margin-top: 25px; text-align: center; background-color: white; color: black; border-radius: 15px;">Good morning!</p>
+          <p style="font-size: 20px; margin-top: 25px; text-align: center; background-color: rgba(0,0,0,0.66); color: white; border-radius: 15px;">Good morning!</p>
           <?php } elseif (11 <= $time && $time <= 17) { ?>
-          <p style="font-size: 20px; margin-top: 25px; text-align: center; background-color: white; color: black; border-radius: 15px;">Hello!</p>
+          <p style="font-size: 20px; margin-top: 25px; text-align: center; background-color: rgba(0,0,0,0.66); color: white; border-radius: 15px;">Hello!</p>
           <?php } else { ?>
-          <p style="font-size: 20px; margin-top: 25px; text-align: center; background-color: white; color: black; border-radius: 15px;"> Welcome Home!</p>
+          <p style="font-size: 20px; margin-top: 25px; text-align: center; background-color: rgba(0,0,0,0.66); color: white; border-radius: 15px;"> Welcome Home!</p>
       <?php } ?>
-    <a href="detail_user.php?member_id=<?php echo $members['member_id']; ?>"><p style="font-size: 20px; margin-top: 25px; text-align: center; background-color: white; color: black; border-radius: 15px;"><?php echo $members['nick_name']; ?>さん</p></a>
+    <a href="detail_user.php?member_id=<?php echo $members['member_id']; ?>"><p style="font-size: 20px; margin-top: 25px; text-align: center; background-color: rgba(0,0,0,0.66); color: white; border-radius: 15px;"><?php echo $members['nick_name']; ?>さん</p></a>
       
     </div>
     <a href="new_book.php" class="btn btn-warning" style="margin-right: 10px">本を新しく追加する</a>
@@ -287,7 +288,7 @@
     
   </div>
 </div>
-  <nav class="navbar navbar-default navbar-fixed-bottom">
+  <nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: rgba(0, 0, 0, 0.66);">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
@@ -297,7 +298,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="top.php" style="font-family: serif; padding-left: 860px"><span class="strong-title"><i class="fa fa-facebook"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" href="top.php" style="font-family: serif; padding-left: 860px"><span class="strong-title" style="color: white"><i class="fa fa-facebook"></i> BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

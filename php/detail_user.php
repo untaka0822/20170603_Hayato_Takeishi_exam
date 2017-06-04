@@ -54,7 +54,7 @@ if (!empty($_POST)) {
 
 </head>
 <body style="background-image: url(../book_picture/book_background10.jpg);"> 
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgba(0, 0, 0, 0.66);">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
@@ -64,7 +64,7 @@ if (!empty($_POST)) {
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="top.php" style="font-family: serif;"><span class="strong-title"><i class="fa fa-facebook"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" href="top.php" style="font-family: serif;"><span class="strong-title" style="color: white"><i class="fa fa-facebook"></i> BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -104,7 +104,7 @@ if (!empty($_POST)) {
      </div>
   </div>
 
-  <nav class="navbar navbar-default navbar-fixed-bottom">
+  <nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: rgba(0, 0, 0, 0.66);">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
@@ -114,7 +114,7 @@ if (!empty($_POST)) {
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="top.php" style="font-family: serif; padding-left: 860px;"><span class="strong-title"><i class="fa fa-facebook"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" href="top.php" style="font-family: serif; padding-left: 860px;"><span class="strong-title" style="color: white"><i class="fa fa-facebook"></i> BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

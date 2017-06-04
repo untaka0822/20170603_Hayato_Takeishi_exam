@@ -1,4 +1,4 @@
-<?php
+  <?php
   session_start();
   require('dbconnect.php');
 
@@ -110,6 +110,7 @@
 <head>
   <meta charset="utf-8">
   <title>ユーザー編集画面</title>
+  <link rel="stylesheet" type="text/css" href="../assets/css/all.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/timeline.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
@@ -118,8 +119,9 @@
   <link rel="stylesheet" type="text/css" href="../resource/lightbox.css" media="screen,tv" />
   <script type="text/javascript" src="../resource/lightbox_plus.js"></script>
 </head>
-<body>
-  <nav class="navbar navbar-default navbar-fixed-top">
+
+<body style="background-image: url(../book_picture/book_background13.jpg);">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgba(0, 0, 0, 0.66);">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
@@ -129,7 +131,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="top.php" style="font-family: serif";><span class="strong-title"><i class="fa fa-facebook"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" href="top.php" style="font-family: serif";><span class="strong-title" style="color: white"><i class="fa fa-facebook"></i> BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -145,10 +147,10 @@
     <div class="row">
       <div class="col-md-5 col-md-offset-3 content-margin-top">
       
-       <legend style="font-family: serif;">ユーザー編集画面</legend>
+       <legend style="font-family: serif; color: white">ユーザー編集画面</legend>
         <form method="POST" action="" class="form-horizontal" role="form" enctype="multipart/form-data">
           <div class="form-group">
-            <label class="col-sm-4 control-label" style="font-family: serif;">ニックネーム</label>
+            <label class="col-sm-4 control-label" style="font-family: serif; color: white">ニックネーム</label>
             <div class="col-sm-8">
               <input type="text" name="nick_name" class="form-control" placeholder="<?php echo $members['nick_name']; ?>" style="font-family: serif;">
               <?php if(isset($errors['nick_name']) && $errors['nick_name'] == 'blank'): ?>
@@ -161,7 +163,7 @@
           
           <!-- メールアドレス -->
           <div class="form-group">
-            <label class="col-sm-4 control-label" style="font-family: serif;">メールアドレス</label>
+            <label class="col-sm-4 control-label" style="font-family: serif; color: white">メールアドレス</label>
             <div class="col-sm-8">
               <input type="email" name="email" class="form-control" placeholder="<?php echo $members['email']; ?>" style="font-family: serif;">
               <?php if(isset($errors['email']) && $errors['email'] == 'blank'): ?>
@@ -180,7 +182,7 @@
 
           <!-- パスワード -->
           <div class="form-group">
-            <label class="col-sm-4 control-label" style="font-family: serif;">パスワード</label>
+            <label class="col-sm-4 control-label" style="font-family: serif; color: white">パスワード</label>
             <div class="col-sm-8">
               <input type="password" name="password" class="form-control" placeholder="4文字以上で入力してください" style="font-family: serif;">
               <?php if(isset($errors['password']) && $errors['password'] == 'blank'): ?>
@@ -199,10 +201,11 @@
 
           <!-- プロフィール写真 -->
           <div class="form-group">
-            <label class="col-sm-4 control-label" style="font-family: serif;">プロフィール写真</label>
+            <label class="col-sm-4 control-label" style="font-family: serif; color: white">プロフィール写真</label>
             <div class="col-sm-7">
                 <input type="file" name="picture_path" class="form-control" style="font-family: serif;">
-              <div class="preview" /><a href="../member_picture/<?php echo $members['picture_path']; ?>" rel="lightbox"><img src="../member_picture/<?php echo $members['picture_path']; ?>" style="width: 100%; height: 40%; margin-top: 10px;" class="effectable"></a></div>
+              <div class="preview" /><a href="../member_picture/<?php echo $members['picture_path']; ?>" rel="lightbox"><img src="../member_picture/<?php echo $members['picture_path']; ?>" style="width: 80%; height: 32%; margin-top: 10px;" class="effectable"></a></div>
+
                 <?php if(isset($errors['picture_path']) && $errors['picture_path'] == 'blank'): ?>
                   <p style="color: red; font-size: 10px; margin-top: 2px; font-family: serif">
                    プロフィール画像を選択してください
@@ -220,17 +223,15 @@
                     再度、プロフィール画像を指定してください
                   </p>
                 <?php endif; ?>
+                <input type="submit" class="btn btn-warning" name="update" value="更新" style="margin-top: 10px; font-family: serif">
+                <a href="top.php" class="btn btn-default" style="margin-top: 10px; font-family: serif">トップへ戻る</a>
             </div>
-          </div>
-          <div style="text-align: center;">
-            <input type="submit" class="btn btn-warning" name="update" value="更新" style="margin-top: -12px; font-family: serif">
-            <a href="top.php" class="btn btn-default" style="margin-top: -12px; font-family: serif">トップへ戻る</a>
           </div>
         </form>
       </div>
 
       <!-- 下のバー -->
-      <nav class="navbar navbar-default navbar-fixed-bottom">
+      <nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: rgba(0, 0, 0, 0.66);">
       <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
@@ -240,7 +241,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="top.php"><span class="strong-title" style="margin-left: 860px; font-family: serif"><i class="fa fa-facebook"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" href="top.php"><span class="strong-title" style="margin-left: 860px; font-family: serif; color: white"><i class="fa fa-facebook"></i> BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

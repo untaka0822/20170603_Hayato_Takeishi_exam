@@ -52,7 +52,7 @@ if (!empty($_POST)) {
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>NexSeed Book</title>
+  <title>BookBookBook</title>
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="../assets/css/form.css" rel="stylesheet">
@@ -71,7 +71,7 @@ if (!empty($_POST)) {
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" style="font-family: serif;"><span class="strong-title"><i class="fa fa-facebook"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" style="font-family: serif;"><span class="strong-title"><i class="fa fa-facebook"></i>BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -117,7 +117,7 @@ if (!empty($_POST)) {
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" style="font-family: serif; margin-left: 860px"><span class="strong-title"><i class="fa fa-facebook"></i> NexSeed Book</span></a>
+              <a class="navbar-brand" style="font-family: serif; margin-left: 860px"><span class="strong-title"><i class="fa fa-facebook"></i>BookBookBook</span></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
