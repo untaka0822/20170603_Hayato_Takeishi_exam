@@ -108,7 +108,7 @@ if (!empty($_POST)) {
                             </div>
                         </div>
                         <div class="col-md-6 forgot-pass-content">
-                            <a href="index.php" class="forgot-pass">Forgot Password</a>
+                            <a href="../join/index.php" class="forgot-pass">Forgot Password</a>
                         </div>
                     </div>
                 </div>
